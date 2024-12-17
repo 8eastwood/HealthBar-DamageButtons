@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 1009892231}
   - component: {fileID: 1009892230}
   - component: {fileID: 1009892229}
+  - component: {fileID: 1009892232}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -785,6 +786,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009892227}
   m_CullTransparentMesh: 1
+--- !u!114 &1009892232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009892227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da15729100a6f514885ae4de637c8694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152222353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1459,7 @@ GameObject:
   - component: {fileID: 1741354145}
   - component: {fileID: 1741354144}
   - component: {fileID: 1741354146}
+  - component: {fileID: 1741354147}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1523,12 +1537,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e1bb50af32b4b47a2efa676878b110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1741354147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741354142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55765024291fd5047803f5eb6b91a7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1741354146}
+  _damageDealer: {fileID: 1916487489}
+  _healDealer: {fileID: 1009892232}
+  _smoothHealthSlider: {fileID: 1447346584}
+  _healthSlider: {fileID: 2137990051}
   _damageButton: {fileID: 1916487486}
   _healButton: {fileID: 1009892229}
-  _healthSlider: {fileID: 2137990051}
-  _smoothHealthSlider: {fileID: 1447346584}
-  _textHealth: {fileID: 939357087}
   _textSmoothHealth: {fileID: 1154679065}
+  _textHealth: {fileID: 939357087}
 --- !u!1 &1916487484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1570,7 @@ GameObject:
   - component: {fileID: 1916487488}
   - component: {fileID: 1916487487}
   - component: {fileID: 1916487486}
+  - component: {fileID: 1916487489}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -1662,6 +1692,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916487484}
   m_CullTransparentMesh: 1
+--- !u!114 &1916487489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916487484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10f434337b07345bd48add64abd23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2005302547
 GameObject:
   m_ObjectHideFlags: 0
