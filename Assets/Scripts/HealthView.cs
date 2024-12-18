@@ -1,33 +1,32 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthView : MonoBehaviour
 {
     [SerializeField] protected Health _health;
     [SerializeField] private DamageButton _damageDealer;
     [SerializeField] private HealButton _healDealer;
-    [SerializeField] private Button _damageButton;
-    [SerializeField] private Button _healButton;
-   
-    private int _healAmount;
-    private int _damage;
+    //[SerializeField] private Button _damageButton;
+    //[SerializeField] private Button _healButton;
+
+    //private int _healAmount;
+    //private int _damage;
 
     private void Awake()
     {
-        _damage = _damageDealer.TransferDamage();
-        _healAmount = _healDealer.TransferHealAmount();
+        //_damage = _damageDealer.TransferDamage();
+        //_healAmount = _healDealer.TransferHealAmount();
     }
 
     private void OnEnable()
     {
-        _damageButton.onClick.AddListener(TakeDamageButtonClick);
-        _healButton.onClick.AddListener(TakeHealButtonClick);
+        _damageDealer.ButtonClicked += TakeDamage;
+        _healDealer.ButtonClicked += TakeHeal;
     }
 
     private void OnDisable()
     {
-        _damageButton.onClick.RemoveListener(TakeDamageButtonClick);
-        _healButton.onClick.RemoveListener(TakeHealButtonClick);
+        _damageDealer.ButtonClicked -= TakeDamage;
+        _healDealer.ButtonClicked -= TakeHeal;
     }
 
     virtual protected void UpdateHealth()
@@ -35,13 +34,13 @@ public class HealthView : MonoBehaviour
 
     }
 
-    private void TakeDamageButtonClick()
+    private void TakeDamage()
     {
-        _health.TakeDamage(_damage);
+        _health.TakeDamage(_damageDealer.TransferDamage());
     }
 
-    private void TakeHealButtonClick()
+    private void TakeHeal()
     {
-        _health.TakeHeal(_healAmount);
+        _health.TakeHeal(_healDealer.TransferHealAmount());
     }
 }

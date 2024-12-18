@@ -11,10 +11,17 @@ public class HealthViewBar : HealthView
         _healthSlider.maxValue = _health.MaxHealth;
         _healthSlider.value = _health.MaxHealth;
     }
+
     private void OnEnable()
     {
         _health.DamageTaken += UpdateHealth;
         _health.Healed += UpdateHealth;
+    }
+
+    private void OnDisable()
+    {
+        _health.DamageTaken -= UpdateHealth;
+        _health.Healed -= UpdateHealth;
     }
 
     protected override void UpdateHealth()

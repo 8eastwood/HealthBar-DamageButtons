@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 public class HealButton : MonoBehaviour
 {
-    private int _healAmount = 10;
+    public int HealAmount { get; private set; } = 10;
+
+    public event Action ButtonClicked;
 
     public int TransferHealAmount()
     {
-        return _healAmount;
+        ButtonClicked?.Invoke();
+        return HealAmount;
     }
 }

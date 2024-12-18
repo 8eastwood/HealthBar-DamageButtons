@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
     public int MinHealth { get; private set; } = 0;
     public int MaxHealth { get; private set; } = 100;
 
-    public Action DamageTaken;
-    public Action Healed;
+    public event Action DamageTaken;
+    public event Action Healed;
 
     private void Awake()
     {

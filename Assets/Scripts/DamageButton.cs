@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 public class DamageButton : MonoBehaviour
 {
-    private int _damage = 20;
+    public int Damage { get; private set; } = 20;
+
+    public event Action ButtonClicked;
 
     public int TransferDamage()
     {
-        return _damage;
+        ButtonClicked?.Invoke();
+        return Damage;
     }
 }
