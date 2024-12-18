@@ -14,11 +14,6 @@ public class HealthViewText : HealthView
         _textSmoothHealth.text = DisplayTextHealth();
     }
 
-    private void Update()
-    {
-        //UpdateHealth();
-    }
-
     private void OnEnable()
     {
         _health.DamageTaken += UpdateHealth;

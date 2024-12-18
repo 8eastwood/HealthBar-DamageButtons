@@ -6,6 +6,7 @@ public class smoothHealthbar : HealthView
     [SerializeField] private Slider _smoothHealthSlider;
 
     private float _step = 0.1f;
+    private bool _isWorking = false;
 
     private void Awake()
     {
@@ -14,15 +15,12 @@ public class smoothHealthbar : HealthView
         _smoothHealthSlider.value = _health.MaxHealth;
     }
 
-    private void OnEnable()
-    {
-        _health.DamageTaken += UpdateHealth;
-        _health.Healed += UpdateHealth;
-    }
-
     private void Update()
     {
-        //UpdateHealth();
+        if (_smoothHealthSlider.value != _health.CurrentHealth)
+        {
+            UpdateHealth();
+        }
     }
 
     protected override void UpdateHealth()

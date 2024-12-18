@@ -17,11 +17,6 @@ public class HealthViewBar : HealthView
         _health.Healed += UpdateHealth;
     }
 
-    private void Update()
-    {
-        //UpdateHealth();
-    }
-
     protected override void UpdateHealth()
     {
         _healthSlider.value = _health.CurrentHealth;
