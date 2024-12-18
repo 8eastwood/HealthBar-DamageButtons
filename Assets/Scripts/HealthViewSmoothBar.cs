@@ -18,18 +18,6 @@ public class smoothHealthbar : HealthView
         _smoothHealthSlider.value = _health.MaxHealth;
     }
 
-    private void OnEnable()
-    {
-        _health.DamageTaken += UpdateHealth;
-        _health.Healed += UpdateHealth;
-    }
-
-    private void OnDisable()
-    {
-        _health.DamageTaken -= UpdateHealth;
-        _health.Healed -= UpdateHealth;
-    }
-
     protected override void UpdateHealth()
     {
         _coroutine = StartCoroutine(UpdateSlider());

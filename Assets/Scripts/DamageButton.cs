@@ -1,15 +1,9 @@
-using System;
-using UnityEngine;
-
-public class DamageButton : MonoBehaviour
+public class DamageButton : ButtonListener
 {
-    public int Damage { get; private set; } = 20;
+    private int _damage = 20;
 
-    public event Action ButtonClicked;
-
-    public int TransferDamage()
+    protected override void ClickOnButton()
     {
-        ButtonClicked?.Invoke();
-        return Damage;
+        Health.TakeDamage(_damage);
     }
 }

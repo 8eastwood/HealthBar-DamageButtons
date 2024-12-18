@@ -1,15 +1,9 @@
-using System;
-using UnityEngine;
-
-public class HealButton : MonoBehaviour
+public class HealButton : ButtonListener
 {
-    public int HealAmount { get; private set; } = 10;
+    private int _healAmount = 10;
 
-    public event Action ButtonClicked;
-
-    public int TransferHealAmount()
+    protected override void ClickOnButton()
     {
-        ButtonClicked?.Invoke();
-        return HealAmount;
+        Health.TakeHeal(_healAmount);
     }
 }
